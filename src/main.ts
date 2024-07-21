@@ -30,7 +30,7 @@ export class App implements OnInit {
 
   public ngOnInit(): void {
     this.treeDataService.data$.subscribe((r) => (this.data = r));
-    //this.generateRandomData$().subscribe((r) => (this.data = r));
+    // this.generateRandomData$().subscribe((r) => (this.data = r));
   }
 
   public generateRandomData$(): Observable<NamedResource> {

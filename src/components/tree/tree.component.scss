@@ -1,15 +1,10 @@
 :host {
-  display: flex;
-  flex-direction: column;
-
   .scroll {
     height: calc(100vh - 16px);
     overflow-y: auto;
 
     .node {
-      display: flex;
-      align-items: center;
-      font-family: sans-serif;
+      text-align: start;
       gap: 4px;
       padding: 0 4px;
     }
