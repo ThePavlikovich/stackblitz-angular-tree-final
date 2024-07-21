@@ -1,0 +1,20 @@
+<cdk-virtual-scroll-viewport [itemSize]="nodeHeight" class="scroll">
+  <button
+    *cdkVirtualFor="let item of displayItems; trackBy: trackBy"
+    class="node"
+    role="treeitem"
+    [ngStyle]="{
+      'margin-inline-start': item.depth * 4 + 'px',
+      width: 'calc(100% - ' + item.depth * 4 + 'px)',
+      height: nodeHeight + 'px'
+    }"
+    [attr.aria-label]="item.path"
+    [attr.aria-expanded]="item.children?.length ? item.expanded : undefined"
+    (click)="toggle(item)"
+    (keydown.alt.arrowdown)="expand(item)"
+    (keydown.alt.arrowup)="collapse(item)"
+  >
+    {{ item.children?.length ? (item.expanded ? '⬇️' : '➡️') : '' }}
+    <ng-container *ngTemplateOutlet="nodeTemplate; context: { node: item }" />
+  </button>
+</cdk-virtual-scroll-viewport>
